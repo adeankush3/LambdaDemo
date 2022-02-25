@@ -13,6 +13,7 @@ namespace PersonDataMangement
             Console.WriteLine("Welcome To Person Data Management");
             List<Person> list = new List<Person>();
             AddRecords(list);
+            RetrivingTopTwoRecord(list);
         }
         private static void AddRecords(List<Person> list)
         {
@@ -29,6 +30,14 @@ namespace PersonDataMangement
             foreach(Person person in list)
             {
                 Console.WriteLine(person.SSN + " " + person.Name + " " + person.Address + "-" + person.Age);
+            }
+        }
+        
+        private static void RetrivingTopTwoRecord(List<Person> list)
+        {
+            foreach(Person person in list.FindAll(e => (e.Age < 60)).Take(2).ToList())
+            {
+                Console.WriteLine("Name "+person.Name+"\t\tAge"+person.Age);
             }
         }
     }
