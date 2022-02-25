@@ -14,6 +14,7 @@ namespace PersonDataMangement
             List<Person> list = new List<Person>();
             AddRecords(list);
             RetrivingTopTwoRecord(list);
+            TeeanAgePerson(list);
         }
         private static void AddRecords(List<Person> list)
         {
@@ -38,6 +39,17 @@ namespace PersonDataMangement
             foreach(Person person in list.FindAll(e => (e.Age < 60)).Take(2).ToList())
             {
                 Console.WriteLine("Name "+person.Name+"\t\tAge"+person.Age);
+            }
+        }
+        private static void TeeanAgePerson(List<Person> list)
+        {
+            if(list.Any(e=>(e.Age>=13 && e.Age <= 19))) 
+            {
+                Console.WriteLine("Yes,We Have Some Teen Agerss in the List");
+            }
+            else
+            {
+                Console.WriteLine("No,We Don't Have Teen Agerss in the List");
             }
         }
     }
