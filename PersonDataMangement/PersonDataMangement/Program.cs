@@ -15,6 +15,7 @@ namespace PersonDataMangement
             AddRecords(list);
             RetrivingTopTwoRecord(list);
             TeeanAgePerson(list);
+            AvgAge(list);
         }
         private static void AddRecords(List<Person> list)
         {
@@ -51,6 +52,12 @@ namespace PersonDataMangement
             {
                 Console.WriteLine("No,We Don't Have Teen Agerss in the List");
             }
+        }
+        private static void AvgAge(List<Person> list)
+        {
+            Console.WriteLine("Getting Average of all the person's age...");
+            double avgAge = list.Average(e => e.Age);
+            Console.WriteLine("The average of all the person's age is: " + avgAge);
         }
     }
 }
