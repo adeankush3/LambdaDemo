@@ -16,6 +16,7 @@ namespace PersonDataMangement
             RetrivingTopTwoRecord(list);
             TeeanAgePerson(list);
             AvgAge(list);
+            SpecificName(list);
         }
         private static void AddRecords(List<Person> list)
         {
@@ -58,6 +59,18 @@ namespace PersonDataMangement
             Console.WriteLine("Getting Average of all the person's age...");
             double avgAge = list.Average(e => e.Age);
             Console.WriteLine("The average of all the person's age is: " + avgAge);
+        }
+        private static void SpecificName(List<Person> list)
+        {
+            Console.WriteLine("\nChecking whether a person having name 'Santosh' exists or not...");
+            if (list.Exists(e => e.Name == "Santosh"))
+            {
+                Console.WriteLine("Yes, A person having name  'Santosh' exists in our list");
+            }
+            else
+            {
+                Console.WriteLine("No,We Don't Have Name in list");
+            }
         }
     }
 }
